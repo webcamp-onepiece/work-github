@@ -4,6 +4,14 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
   def change
     create_table :customers do |t|
       ## Database authenticatable
+      t.string :family_name
+      t.string :first_name
+      t.string :family_name_kana
+      t.string :first_name_kana
+      t.string :postal_code
+      t.string :address
+      t.string :phone_number
+      t.boolean :is_deleted
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -31,7 +39,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
+     
+     
 
       t.timestamps null: false
     end
