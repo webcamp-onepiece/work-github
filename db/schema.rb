@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_06_16_051351) do
 
   create_table "admins", force: :cascade do |t|
@@ -25,6 +26,10 @@ ActiveRecord::Schema.define(version: 2021_06_16_051351) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+
+    t.integer "customer_id"
+    t.integer "product_id"
+    t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_06_16_051351) do
   end
 
   create_table "genres", force: :cascade do |t|
+
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,6 +72,13 @@ ActiveRecord::Schema.define(version: 2021_06_16_051351) do
   end
 
   create_table "products", force: :cascade do |t|
+
+    t.integer "genre_id"
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.string "image_id"
+    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +86,10 @@ ActiveRecord::Schema.define(version: 2021_06_16_051351) do
   create_table "recievers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.string "name"
+    t.string "postal_code"
+    t.string "address"
   end
 
 end
