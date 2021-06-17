@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 }
 
   #カスタマー
-
+root to: 'homes#top'
+get "about" => "top#about" , as: "about"
 
 
 
