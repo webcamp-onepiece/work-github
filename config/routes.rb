@@ -9,5 +9,15 @@ Rails.application.routes.draw do
   passwords:     'customers/passwords',
   registrations: 'customers/registrations'
 }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #カスタマー
+
+
+
+
+  # 管理者
+  namespace :admin do
+    get "top" => "admin/homes#top"
+  end
+
 end
