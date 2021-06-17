@@ -6,5 +6,19 @@ class Customer < ApplicationRecord
          
   has_many :cart_items,dependent: :destroy
   has_many :orders
-  has_many :recievers
+  has_many :recievers   
+         
+  with_options presence: true do
+   validates :family_name
+   validates :first_name
+   validates :family_name_kana
+   validates :first_name_kana
+   validates :postal_code
+   validates :address
+   validates :phone_number
+   validates :email
+   validates :encrypted_password
+   validates :is_deleted
+  end
+         
 end
