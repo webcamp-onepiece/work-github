@@ -4,7 +4,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-         
+  has_many :cart_items,dependent: :destroy
+  has_many :orders
+  has_many :recievers   
          
   with_options presence: true do
    validates :family_name
@@ -18,6 +20,5 @@ class Customer < ApplicationRecord
    validates :encrypted_password
    validates :is_deleted
   end
-         
          
 end
