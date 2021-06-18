@@ -1,2 +1,2 @@
-module OrderProductsHelper
+module Public::OrderProductsHelper
 end

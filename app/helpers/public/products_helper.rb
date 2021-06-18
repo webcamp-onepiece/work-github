@@ -1,2 +1,2 @@
-module ProductsHelper
+module Public::ProductsHelper
 end

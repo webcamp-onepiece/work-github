@@ -1,2 +1,2 @@
-module CartItemsHelper
+module Public::CartItemsHelper
 end
