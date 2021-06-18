@@ -28,7 +28,6 @@ patch "customers/withdraw" => "public/customers#withdraw"
     get "top" => "admin/homes#top"
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
     get "products/genres" =>"admin/genres#index"
->>>>>
     #会員一覧ページ、会員情報詳細ページ、会員情報編集ページ
     resources :customers, only: [:index, :show, :edit, :update]
   end
