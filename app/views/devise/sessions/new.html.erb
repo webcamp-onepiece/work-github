@@ -1,0 +1,23 @@
+<h2>ログイン</h2>
+<h3>会員の方はこちらからログイン</h3>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <!--メールアドレス-->
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
+  </div>
+
+  <!--パスワード-->
+  <div class="field">
+    <%= f.label :password, "パスワード" %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+<h3>会員登録がお済みでない方</h3>
+<%= render "devise/shared/links" %>
