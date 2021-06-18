@@ -20,13 +20,13 @@
       
         <%= ようこそ、@customer.family_name さん! %>
         <li>
-         <%= link_to"マイページ", custemers_path(current_user) %>
+         <%= link_to"マイページ", customers_path(current_user) %>
         </li>
         <li>
-         <%= link_to"商品一覧", product_path %>
+         <%= link_to"商品一覧", "" %>
         </li>
         <li>
-         <%= link_to"カート", cart_item_path %>
+         <%= link_to"カート", "" %>
         </li>
         <li>
          <%= link_to"ログアウト", destroy_customer_session %>
@@ -34,7 +34,7 @@
         
       <% elsif admin_signed_in? %>
         <li>
-         <%= link_to"商品一覧", admin_product_path %>
+         <%= link_to"商品一覧", admin_products_path %>
         </li>
         <li>
          <%= link_to"会員一覧", admin_custemer_path %>
@@ -54,7 +54,7 @@
           <%= link_to"About", about_path %>
         </li>
         <li>
-          <%= link_to"商品一覧", product_path %>
+          <%= link_to"商品一覧", "" %>
          </li>
          <li>
            <%= link_to"新規登録", new_customer_registration_path %>
