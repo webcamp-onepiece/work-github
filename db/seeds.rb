@@ -40,7 +40,7 @@ Customer.create!(
   :family_name => "⼭⽥",
   :first_name => "太郎",
   :family_name_kana => "ヤマダ",
-  :first_name_kana => "ハナコ",
+  :first_name_kana => "タロウ",
   :postal_code => "1500041",
   :address => "東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア2	4階",
   :phone_number => "0368694700",
