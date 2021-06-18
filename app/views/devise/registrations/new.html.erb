@@ -1,0 +1,74 @@
+<h2>新規会員登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  名前
+  <!--姓-->
+  <div class="field">
+    <%= f.label :family_name, "(姓)" %>
+    <%= f.text_field :family_name, autofocus: true, placeholder: "令和", autocomplete: "family-name" %>
+  </div>
+
+  <!--名-->
+  <div class="field">
+    <%= f.label :first_name, "(名)" %>
+    <%= f.text_field :first_name, placeholder: "道子", autocomplete: "given-name" %>
+  </div>
+
+  フリガナ
+  <!--セイ-->
+  <div class="field">
+    <%= f.label :family_name_kana, "(セイ)" %>
+    <%= f.text_field :family_name_kana, placeholder: "レイワ", autocomplete: "" %>
+  </div>
+
+  <!--メイ-->
+  <div class="field">
+    <%= f.label :first_name_kana, "(メイ)" %>
+    <%= f.text_field :first_name_kana, placeholder: "ミチコ", autocomplete: "" %>
+  </div>
+
+  <!--メールアドレス-->
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, placeholder: "sample@example.com", autocomplete: "email" %>
+  </div>
+
+  <!--郵便番号（ハイフンなし）-->
+  <div class="field">
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+    <%= f.text_field :postal_code, placeholder: "0000000", autocomplete: "postal-code" %>
+  </div>
+
+  <!--住所-->
+  <div class="field">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address, placeholder: "東京都渋⾕区代々⽊神園町0-0" %>
+  </div>
+
+  <!--電話番号（ハイフンなし）-->
+    <div class="field">
+    <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
+    <%= f.text_field :phone_number, placeholder: "0000000000" %>
+  </div>
+
+  <!--パスワード（6文字以上）-->
+  <div class="field">
+    <%= f.label :password, "パスワード(6文字以上)" %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <!--パスワード（確認用）-->
+  <div class="field">
+    <%= f.label :password_confirmation, "パスワード(確認用)" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<h2>登録済みの方</h2>
+<%= render "devise/shared/links" %>
