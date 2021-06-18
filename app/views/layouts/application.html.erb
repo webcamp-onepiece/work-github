@@ -14,9 +14,9 @@
     <header>
       <nav>
         <li>
-         <%= link_to"LOGO", root_psth %>
+         <%= link_to"LOGO", root_path %>
         </li>
-      <% if custemer_signed_in? %>
+      <% if customer_signed_in? %>
       
         <%= ようこそ、@customer.family_name さん! %>
         <li>
@@ -32,7 +32,7 @@
          <%= link_to"ログアウト", destroy_customer_session %>
         </li>
         
-      <% elsif admin_signed_in %>
+      <% elsif admin_signed_in? %>
         <li>
          <%= link_to"商品一覧", admin_product_path %>
         </li>
