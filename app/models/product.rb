@@ -8,7 +8,8 @@ class Product < ApplicationRecord
   validates :name
   validates :description
   validates :price
-  validates :is_active
   end
+
+  validates :is_active, inclusion: { in: [true, false] }
 
 end

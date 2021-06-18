@@ -19,13 +19,13 @@ resource :customers, only: [:edit, :update]
 
 get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
- 
-   
 
-  
+
+
+
   # 管理者
  namespace :admin do
-    get "top" => "admin/homes#top"
+    get "top" => "homes#top"
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
     get "products/genres" =>"admin/genres#index"
     #会員一覧ページ、会員情報詳細ページ、会員情報編集ページ
