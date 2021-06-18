@@ -5,3 +5,48 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Customer.create!(
+  :family_name => "令和",
+  :first_name => "道子",
+  :family_name_kana => "レイワ",
+  :first_name_kana => "ミチコ",
+  :postal_code => "0000000",
+  :address => "東京都渋⾕区代々⽊神園町0-0",
+  :phone_number => "0000000000",
+  :is_deleted => 1,
+  :email => "sample@example.com",
+  :password => "123456",
+  :created_at => "2021-01-01",
+  :updated_at => "2021-01-01",
+)
+
+Customer.create!(
+  :family_name => "⼭⽥",
+  :first_name => "花⼦",
+  :family_name_kana => "ヤマダ",
+  :first_name_kana => "ハナコ",
+  :postal_code => "1500041",
+  :address => "東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア2	4階",
+  :phone_number => "0368694700",
+  :is_deleted => 1,
+  :email => "hoge@example.com",
+  :password => "123456",
+  :created_at => "2021-01-01",
+  :updated_at => "2021-01-01",
+)
+
+Customer.create!(
+  :family_name => "⼭⽥",
+  :first_name => "太郎",
+  :family_name_kana => "ヤマダ",
+  :first_name_kana => "タロウ",
+  :postal_code => "1500041",
+  :address => "東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア2	4階",
+  :phone_number => "0368694700",
+  :is_deleted => 2,
+  :email => "hogehoge@example.com",
+  :password => "123456",
+  :created_at => "2021-01-01",
+  :updated_at => "2021-01-01",
+)
