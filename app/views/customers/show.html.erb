@@ -1,1 +1,30 @@
-<h1>会員マイページ</h1>
+<h1>マイページ</h1>
+
+<h2>登録情報</h2>
+
+<div>
+  <%= link_to '編集する', edit_customers_path,class: "btn btn-success" %>
+</div>
+
+
+<div>
+ 
+  <p>氏名：<%=@customer.family_name  %> <%=current_user.first_name  %></p>
+  <p>カナ：<%=@customer.family_name_kana  %> <%=current_user.first_name_kana  %></p>
+  <p>郵便番号：<%= @customer.postal_code %></p>
+  <p>住所：<%= @customer.address %></p>
+  <p>電話番号：<%= current_user.phone_number %></p>
+  <p>メールアドレス：<%= current_user.email %></p>
+</div>
+
+
+<h3>配送先</h3>
+<div>
+  <%= link_to '一覧を見る', edit_customers_path,class: "btn btn-info" %>
+</div>
+
+<h3>注文履歴</h3>
+<div>
+  <%= link_to '一覧を見る', edit_customers_path,class: "btn btn-info" %>
+</div>
+
