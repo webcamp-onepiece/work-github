@@ -11,6 +11,67 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <li>
+         <%= link_to"LOGO", root_psth %>
+        </li>
+      <% if custemer_signed_in? %>
+      
+        <%= ようこそ、@customer.family_name さん! %>
+        <li>
+         <%= link_to"マイページ", custemers_path(current_user) %>
+        </li>
+        <li>
+         <%= link_to"商品一覧", product_path %>
+        </li>
+        <li>
+         <%= link_to"カート", cart_item_path %>
+        </li>
+        <li>
+         <%= link_to"ログアウト", destroy_customer_session %>
+        </li>
+        
+      <% elsif admin_signed_in %>
+        <li>
+         <%= link_to"商品一覧", admin_product_path %>
+        </li>
+        <li>
+         <%= link_to"会員一覧", admin_custemer_path %>
+        </li>
+        <li>
+         <%= link_to"注文履歴一覧", admin_top_path %>
+        </li>
+        <li>
+         <%= link_to"ジャンル一覧", admin_product_genres_path %>
+        </li>
+        <li>
+         <%= link_to"ログアウト", destroy_customer_session %>
+        </li>
+        
+      <% else %>
+        <li>
+          <%= link_to"About", about_path %>
+        </li>
+        <li>
+          <%= link_to"商品一覧", product_path %>
+         </li>
+         <li>
+           <%= link_to"新規登録", new_customer_registration_path %>
+         </li>
+         <li>
+           <%= link_to"ログイン", new_customer_session_path %>
+         </li>
+       <% end %>
+      </nav>
+    </header>
+    
+    
+    <main><%= yield %></main>
+    
+    
+    <footer>
+      <p>@one pice</p>
+    </footer>
   </body>
 </html>
