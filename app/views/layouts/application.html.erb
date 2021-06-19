@@ -18,9 +18,9 @@
         </li>
       <% if customer_signed_in? %>
       
-        <%= ようこそ、@customer.family_name さん! %>
+        <%= current_customer.family_name  %>
         <li>
-         <%= link_to"マイページ", customers_path(current_user) %>
+         <%= link_to"マイページ", customers_my_page_path %>
         </li>
         <li>
          <%= link_to"商品一覧", "" %>
@@ -29,7 +29,7 @@
          <%= link_to"カート", "" %>
         </li>
         <li>
-         <%= link_to"ログアウト", destroy_customer_session %>
+         <%= link_to"ログアウト", destroy_customer_session_path %>
         </li>
         
       <% elsif admin_signed_in? %>
@@ -46,7 +46,7 @@
          <%= link_to"ジャンル一覧", admin_product_genres_path %>
         </li>
         <li>
-         <%= link_to"ログアウト", destroy_customer_session %>
+         <%= link_to"ログアウト", destroy_customer_session_path %>
         </li>
         
       <% else %>

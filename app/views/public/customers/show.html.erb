@@ -1,0 +1,72 @@
+<div class="container">
+<div class="row">  
+
+
+<div class="col-md-1"></div>
+
+<div class="col-md-6">
+
+
+<h1>マイページ</h1>
+
+
+<div class="row">
+<h2 class="col-md-4">登録情報</h2>
+<div class="col-md-1"></div>
+<div class="col-md-4">
+  <%= link_to '編集する', edit_customers_path,class: "btn btn-success" %>
+</div>
+</div>
+
+
+
+<table>
+ <tr>
+  <th>氏名</th><td><%=@customer.family_name  %>   <%=@customer.first_name  %></td>
+ </tr>
+ 
+ <tr>
+  <th>カナ</th><td><%=@customer.family_name_kana  %>   <%=@customer.first_name_kana  %></td>
+ </tr>
+ 
+ <tr>
+  <th>郵便番号</th><td><%= @customer.postal_code %></td>
+ </tr>
+ 
+ <tr>
+  <th>住所</th><td><%= @customer.address %></td>
+ </tr>
+ 
+ <tr>
+  <th>電話番号</th><td><%= @customer.phone_number %></td>
+ </tr>
+ 
+ <tr>
+  <th>メールアドレス</th><td><%= @customer.email %></td>
+ </tr>
+</table>
+
+
+<div class="row">
+<h3 class="col-md-4">配送先</h3>
+<div class="col-md-1"></div>
+<div class="col-md-4">
+  <%= link_to '一覧を見る', edit_customers_path,class: "btn btn-info" %>
+</div>
+</div>
+
+<div class="row">
+  <h3 class="col-md-4">注文履歴</h3>
+  <div class="col-md-1"></div>
+<div class="col-md-4">
+  <%= link_to '一覧を見る', edit_customers_path,class: "btn btn-info" %>
+</div>
+</div>
+
+</div>
+
+
+<div class="col-md-5"></div>
+
+</div>
+</div>

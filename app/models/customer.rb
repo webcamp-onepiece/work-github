@@ -18,7 +18,6 @@ class Customer < ApplicationRecord
    validates :phone_number
    validates :email
    validates :encrypted_password
-   validates :is_deleted
   end
          
 end
