@@ -10,12 +10,10 @@
 <h1>マイページ</h1>
 
 
-<div class="row">
-<h2 class="col-md-4">登録情報</h2>
-<div class="col-md-1"></div>
-<div class="col-md-4">
+
+<h2 style="display:inline-block">登録情報</h2>
+<div class="btn">
   <%= link_to '編集する', edit_customers_path,class: "btn btn-success" %>
-</div>
 </div>
 
 
@@ -47,20 +45,14 @@
 </table>
 
 
-<div class="row">
-<h3 class="col-md-4">配送先</h3>
-<div class="col-md-1"></div>
-<div class="col-md-4">
+<h3 style="display:inline-block">配送先</h3>
+<div class="btn">
   <%= link_to '一覧を見る', edit_customers_path,class: "btn btn-info" %>
-</div>
 </div>
 
-<div class="row">
-  <h3 class="col-md-4">注文履歴</h3>
-  <div class="col-md-1"></div>
-<div class="col-md-4">
+  <h3 style="display:inline-block">注文履歴</h3>
+<div class="btn">
   <%= link_to '一覧を見る', edit_customers_path,class: "btn btn-info" %>
-</div>
 </div>
 
 </div>
