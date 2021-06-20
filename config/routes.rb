@@ -19,6 +19,10 @@ resource :customers, only: [:edit, :update]
 
 get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
+
+get "customers/products" => "public/products#index"
+get "customers/product" => "public/product#show"
+
 resources :cart_items, only: [:index, :create, :update, :destroy] do
   collection do
     delete 'destroy_all'

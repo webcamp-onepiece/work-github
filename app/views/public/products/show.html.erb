@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td>
+    　<%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
+    </td>
+    <td>
+      <%= @product.name %>
+      <%= @product.description %>
+      <strong>¥<%= (@product.price * 1.1.to_s(:delimited)).floor %>(税込)</strong>
+      <%= f.select :count, min:1, max:10, include_blank: "個数選択" %>
+      <%= link_to"カートに入れる", cart_items_path, class:"btn btn-success" %>
+    </td>
+  </tr>
+</table>
