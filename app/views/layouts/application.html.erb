@@ -14,7 +14,7 @@
 
   <body>
     <header>
-      <nav　class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg">
         <div class="container">
           <%= link_to"LOGO", root_path %>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,10 @@
              <%= link_to"マイページ", customers_path(current_user) %>
             </li>
             <li>
-             <%= link_to"商品一覧", "" %>
+             <%= link_to"商品一覧",  customers_products_path %>
             </li>
             <li>
-             <%= link_to"カート", "" %>
+             <%= link_to"カート",  cart_items_path(current_user) %>
             </li>
             <li>
              <%= link_to"ログアウト", destroy_customer_session %>
@@ -59,7 +59,7 @@
               <%= link_to"About", about_path %>
             </li>
             <li>
-              <%= link_to"商品一覧", "" %>
+              <%= link_to"商品一覧", customers_products_path %>
              </li>
              <li>
                <%= link_to"新規登録", new_customer_registration_path %>
@@ -82,7 +82,7 @@
      <div class="container mt-5">
       <div class="row">
       　<div class="mx-auto">
-        　<p>@one pice</p>
+        　<p>@one piece</p>
     　　</div>
     　 </div>
     　</div>
