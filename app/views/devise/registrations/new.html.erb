@@ -65,6 +65,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <!--退会フラグ-->
+  <%= f.hidden_field :is_deleted, value: "false" %>
+
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>

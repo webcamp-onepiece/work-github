@@ -3,11 +3,11 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   has_many :cart_items,dependent: :destroy
   has_many :orders
-  has_many :recievers   
-         
+  has_many :recievers
+
 
   with_options presence: true do
    validates :family_name
@@ -20,5 +20,7 @@ class Customer < ApplicationRecord
    validates :email
    validates :encrypted_password
   end
-         
+
+  validates :is_deleted, inclusion: { in: [true, false] }
+
 end

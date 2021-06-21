@@ -14,7 +14,7 @@ Customer.create!(
   :postal_code => "0000000",
   :address => "東京都渋⾕区代々⽊神園町0-0",
   :phone_number => "0000000000",
-  :is_deleted => 1,
+  :is_deleted => false,
   :email => "sample@example.com",
   :password => "123456",
   :created_at => "2021-01-01",
@@ -29,7 +29,7 @@ Customer.create!(
   :postal_code => "1500041",
   :address => "東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア2	4階",
   :phone_number => "0368694700",
-  :is_deleted => 1,
+  :is_deleted => false,
   :email => "hoge@example.com",
   :password => "123456",
   :created_at => "2021-01-01",
@@ -44,8 +44,22 @@ Customer.create!(
   :postal_code => "1500041",
   :address => "東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア2	4階",
   :phone_number => "0368694700",
-  :is_deleted => 2,
+  :is_deleted => true,
   :email => "hogehoge@example.com",
+  :password => "123456",
+  :created_at => "2021-01-01",
+  :updated_at => "2021-01-01",
+)
+
+Admin.create!(
+  :email => "admin@admin.com",
+  :password => "123456",
+  :created_at => "2021-01-01",
+  :updated_at => "2021-01-01",
+)
+
+Admin.create!(
+  :email => "admin2@admin.com",
   :password => "123456",
   :created_at => "2021-01-01",
   :updated_at => "2021-01-01",
