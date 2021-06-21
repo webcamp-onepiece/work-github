@@ -1,6 +1,6 @@
-class CreateRecievers < ActiveRecord::Migration[5.2]
+class CreateReceivers < ActiveRecord::Migration[5.2]
   def change
-    create_table :recievers do |t|
+    create_table :receivers do |t|
       
       t.integer:customer_id
       t.string:name

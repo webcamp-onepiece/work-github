@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: {
+  devise_for :admins, path: 'admin', controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
@@ -20,11 +20,16 @@ resource :customers, only: [:edit, :update]
 get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
 
-
-
+  #注文情報
+  resources :orders, only: [:index,:new,:create,:show], module: "public" do
+    collection do
+      post "confirm"
+      get "thankyou"
+    end
+  end
 
   # 管理者
- namespace :admin do
+  namespace :admin do
     get "top" => "homes#top"
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
     get "products/genres" =>"admin/genres#index"

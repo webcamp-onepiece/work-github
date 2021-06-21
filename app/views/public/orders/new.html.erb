@@ -1,0 +1,47 @@
+<h3>注文情報入力</h3>
+
+<%= form_with model: @order, url: confirm_orders_path, method: :post, local: true do |f| %>
+
+
+  <h4><%= f.label :payment_method, "支払い方法" %></h4>
+  <div class="form-check">
+  <%= f.radio_button :payment_method, :"クレジットカード", checked: true, id: "credit_card" %>
+  <%= f.label :"クレジットカード", for: "credit_card" %>
+  </div>
+  <div class="form-check">
+  <%= f.radio_button :payment_method, :"銀行振込", id: "bank_transfer" %>
+  <%= f.label :"銀行振込", for: "bank_transfer" %>
+  </div>
+
+  <h4><%= f.label :receiver, "お届け先" %></h4>
+  <div class="form-check">
+    <%= f.radio_button :receiver, "current_address", checked: true, id: "current_address"%>
+      <label for="current_address">
+        ご自身の住所<br>
+        <%= "#{current_customer.postal_code} #{current_customer.address}" %><br>
+        <%= "#{current_customer.family_name} #{current_customer.first_name}" %>
+      </label>
+  </div>
+  <div class="form-check">
+    <%= f.radio_button :receiver, "receiver_addresses", id: "receiver_addresses" %>
+      <label for="receiver_addresses">
+        登録済住所から選択<br>
+        <%= f.collection_select(:receiver_id, @receiver, :id, :postal_code_address, {prompt: ""}, class: "form-group") %>
+      </label>
+  </div>
+  <div class="form-check">
+  <%= f.radio_button :receiver, "new_address", id: "new_address" %>
+    <label for="new_address">
+      新しいお届け先<br>
+      <%= f.label :receiver_postal_code, "郵便番号(ハイフンなし)" %>
+      <%= f.text_field :receiver_postal_code, class: "form-group" %>
+      <%= f.label :receiver_address, "住所" %>
+      <%= f.text_field :receiver_address, class: "form-group" %>
+      <%= f.label :receiver, "宛名" %>
+      <%= f.text_field :receiver, class: "form-group" %>
+    </label>
+  </div>
+
+  <%= f.submit "確認画面へ進む" %>
+
+<% end %>
