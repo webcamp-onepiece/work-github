@@ -45,10 +45,10 @@ resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
   # 管理者
   namespace :admin do
     get "top" => "homes#top"
-    resources :products,only: [:index,:new,:create,:show,:edit,:update,]
     scope :products do
       resources :genres,only: [:index,:create,:edit,:update, :show]
     end
+    resources :products,only: [:index,:new,:create,:show,:edit,:update,]
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
