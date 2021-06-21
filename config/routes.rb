@@ -32,22 +32,6 @@ resources :cart_items, only: [:index, :create, :update, :destroy] do
   end
 end
 
- 
-   
-resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
-
-
-
-
-  # 管理者
- namespace :admin do
-    get "top" => "admin/homes#top"
-
-    scope :products do
-    resources :genres,only: [:index,:create,:edit,:update, :show]
-    end
-
-
   #注文情報
   resources :orders, only: [:index,:new,:create,:show], module: "public" do
     collection do
@@ -56,12 +40,15 @@ resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
     end
   end
 
+resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
+
   # 管理者
   namespace :admin do
     get "top" => "homes#top"
+    scope :products do
+      resources :genres,only: [:index,:create,:edit,:update, :show]
+    end
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
-
-    get "products/genres" =>"admin/genres#index"
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
