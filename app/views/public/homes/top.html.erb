@@ -5,7 +5,9 @@
 
 <h1>新着商品</h1>
 
-<% @product.each.with_index(1) do |product, i| %>
-<%= i %> 
-<%= link_to product.image, product.name %>
+<% @products.each do |product| %>
+  <%= link_to  customers_product_path(product) do %>
+  <%= attachment_image_tag product, :image, :fill, 50, 50, fallback: "no_image.jpg" %>
+  <br><%= product.name %>
+  <% end %>
 <% end %>

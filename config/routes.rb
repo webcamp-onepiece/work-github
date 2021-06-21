@@ -24,7 +24,7 @@ patch "customers/withdraw" => "public/customers#withdraw"
 
 
 get "customers/products" => "public/products#index"
-get "customers/product" => "public/products#show"
+get "customers/product/:id" => "public/products#show", as: 'customers_product'
 
 resources :cart_items, only: [:index, :create, :update, :destroy] do
   collection do
