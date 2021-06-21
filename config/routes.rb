@@ -15,14 +15,15 @@ root to: 'public/homes#top'
 get "about" => "public/homes#about" , as: "about"
 
 get "customers/my_page" => 'public/customers#show'
-
-resource :customers, only: [:edit, :update]
+get "customers/my_page/edit" => 'public/customers#edit', as: "my_page_edit"
+patch "customers" => 'public/customers#update'
 
 
 get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
  
    
+resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
 
   
   # 管理者

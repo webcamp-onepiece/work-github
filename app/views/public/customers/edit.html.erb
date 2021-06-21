@@ -1,43 +1,56 @@
-<h1>会員情報編集</h1>
+<div class="container">
+  <div class="row">  
 
-<%= form_with model:@customer, local:true do |f| %>
+    <div class="col-md-1"></div>
 
- <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :family_name, class: "form-control name", placeholder:"名前"  %>
-         <%= f.text_field :first_name, class: "form-control name", placeholder:"名前"  %>
-      </div>
-      
+    <div class="col-md-9">
+
+      <h1>会員情報編集</h1>
+
+      <%= form_with model:@customer,url: {controller: 'public/customers', action: 'update'},　local:true do |f| %>
+
       <div class="form-group">
         <%= f.label :name, "氏名" %>
-        <%= f.text_field :family_name_kana, class: "form-control name", placeholder:"名前"  %>
-         <%= f.text_field :first_name_kana, class: "form-control name", placeholder:"名前"  %>
+        <%= f.text_field :family_name, class: "form-control name", placeholder:"姓"  %>
+        <%= f.text_field :first_name, class: "form-control name", placeholder:"名"  %>
       </div>
       
       <div class="form-group">
         <%= f.label :name, "フリガナ" %>
-        <%= f.number_field :postal_code, class: "form-control name", placeholder:"名前"  %>
+        <%= f.text_field :family_name_kana, class: "form-control name", placeholder:"セイ"  %>
+        <%= f.text_field :first_name_kana, class: "form-control name", placeholder:"メイ"  %>
       </div>
       
       <div class="form-group">
         <%= f.label :name, "郵便番号" %>
-        <%= f.text_field :address, class: "form-control name", placeholder:"名前"  %>
-             </div>
+        <%= f.number_field :postal_code, class: "form-control name", placeholder:"郵便番号"  %>
+      </div>
+        
+      <div class="form-group">
+        <%= f.label :name, "住所" %>
+        <%= f.text_field :address, class: "form-control name", placeholder:"住所"  %>
+      </div>
       
       <div class="form-group">
         <%= f.label :name, "電話番号" %>
-        <%= f.number_field :phone_number, class: "form-control name", placeholder:"名前"  %>
+        <%= f.number_field :phone_number, class: "form-control name", placeholder:"電話番号"  %>
       </div>
   
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :name, "メールアドレス" %>
-        <%= f.email_field :email, class: "form-control name", placeholder:"名前"  %>
+        <%= f.email_field :email, class: "form-control name", placeholder:"email"  %>
       </div>
   
-  
-  <%= f.submit "編集内容を保存", class:"btn btn-success" %>
-<% end %>
+     <%= f.submit "編集内容を保存", class:"btn btn-success" %>
+     <% end %>
 
-<div>
-  <%= link_to '退会する', customers_alert_path,class: "btn btn-danger" %>
+     <div class="btn">
+      <%= link_to '退会する', customers_alert_path,class: "btn btn-danger" %>
+     </div>
+    </div>
+    
+    <div class="col-md-2"></div>
+
+
+  </div>
 </div>
