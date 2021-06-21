@@ -46,8 +46,9 @@ resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
   namespace :admin do
     get "top" => "homes#top"
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
-
-    get "products/genres" =>"admin/genres#index"
+    scope :products do
+      resources :genres,only: [:index,:create,:edit,:update, :show]
+    end
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
