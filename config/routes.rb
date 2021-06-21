@@ -21,17 +21,25 @@ patch "customers" => 'public/customers#update'
 
 get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
+
  
    
 resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
 
-  
+
+
+
   # 管理者
  namespace :admin do
     get "top" => "admin/homes#top"
+
+    scope :products do
+    resources :genres,only: [:index,:create,:edit,:update, :show]
+    end
+
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
+
     get "products/genres" =>"admin/genres#index"
-  
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
