@@ -5,7 +5,7 @@
 
 <h1>新着商品</h1>
 
-<%= @product.each.with_index(1) do |product, i| %>
+<% @product.each.with_index(1) do |product, i| %>
 <%= i %> 
-<% =link_to product.image, product.name %>
+<%= link_to product.image, product.name %>
 <% end %>

@@ -21,7 +21,7 @@ get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
 
 get "customers/products" => "public/products#index"
-get "customers/product" => "public/product#show"
+get "customers/product" => "public/products#show"
 
 resources :cart_items, only: [:index, :create, :update, :destroy] do
   collection do
