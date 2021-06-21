@@ -12,13 +12,19 @@ Rails.application.routes.draw do
 
   #カスタマー
 root to: 'public/homes#top'
-get "about" => "top#about" , as: "about"
-  #会員マイページ、会員情報編集ページ、退会確認ページ
-get "customers/my_page" => "public/customers#show"
-resource :customers, only: [:edit, :update]
+get "about" => "public/homes#about" , as: "about"
+
+get "customers/my_page" => 'public/customers#show'
+get "customers/my_page/edit" => 'public/customers#edit', as: "my_page_edit"
+patch "customers" => 'public/customers#update'
+
 
 get "customers/alert" => "public/customers#alert"
 patch "customers/withdraw" => "public/customers#withdraw"
+
+ 
+   
+resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
 
 
 
@@ -33,7 +39,7 @@ patch "customers/withdraw" => "public/customers#withdraw"
 
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
 
-    #会員一覧ページ、会員情報詳細ページ、会員情報編集ページ
+    get "products/genres" =>"admin/genres#index"
     resources :customers, only: [:index, :show, :edit, :update]
   end
 
