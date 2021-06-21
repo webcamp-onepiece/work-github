@@ -43,23 +43,6 @@ end
 resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
 
   # 管理者
- namespace :admin do
-    get "top" => "admin/homes#top"
-
-    scope :products do
-    resources :genres,only: [:index,:create,:edit,:update, :show]
-    end
-
-
-  #注文情報
-  resources :orders, only: [:index,:new,:create,:show], module: "public" do
-    collection do
-      post "confirm"
-      get "thankyou"
-    end
-  end
-
-  # 管理者
   namespace :admin do
     get "top" => "homes#top"
     resources :products,only: [:index,:new,:create,:show,:edit,:update,]
