@@ -9,7 +9,7 @@
    <%= product.name %>
  <% end %>
    
-    <p>¥<%= product.price.to_s(:delimited) %></p>
+    <p>¥<%= product.add_tax_price.to_s(:delimited) %></p>
  <% end %>
 </div>
 
