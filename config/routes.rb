@@ -32,12 +32,15 @@ resources :cart_items, only: [:index, :create, :update, :destroy] do
   end
 end
 
- 
-   
+  #注文情報
+  resources :orders, only: [:index,:new,:create,:show], module: "public" do
+    collection do
+      post "confirm"
+      get "thankyou"
+    end
+  end
+
 resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
-
-
-
 
   # 管理者
  namespace :admin do
