@@ -4,3 +4,8 @@
 <p>購入には会員登録が必要になります。</p>
 
 <h1>新着商品</h1>
+
+<% @product.each.with_index(1) do |product, i| %>
+<%= i %> 
+<%= link_to product.image, product.name %>
+<% end %>

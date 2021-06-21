@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :recievers   
          
+
   with_options presence: true do
    validates :family_name
    validates :first_name
