@@ -14,7 +14,8 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg">
+
+       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <%= link_to"LOGO", root_path %>
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,54 +24,52 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
-            <%= ようこそ、@customer.family_name さん! %>
-            <li>
-             <%= link_to"マイページ", customers_path(current_user) %>
-            </li>
-            <li>
-             <%= link_to"商品一覧",  customers_products_path %>
-            </li>
-            <li>
-             <%= link_to"カート",  cart_items_path(current_user) %>
-            </li>
-            <li>
-             <%= link_to"ログアウト", destroy_customer_session %>
-            </li>
-            
-          <% elsif admin_signed_in? %>
-            <li>
-             <%= link_to"商品一覧", admin_products_path %>
-            </li>
-            <li>
-             <%= link_to"会員一覧", admin_custemer_path %>
-            </li>
-            <li>
-             <%= link_to"注文履歴一覧", admin_top_path %>
-            </li>
-            <li>
-             <%= link_to"ジャンル一覧", admin_product_genres_path %>
-            </li>
-            <li>
-             <%= link_to"ログアウト", destroy_customer_session %>
-            </li>
-            
-          <% else %>
-            <li>
-              <%= link_to"About", about_path %>
-            </li>
-            <li>
-              <%= link_to"商品一覧", customers_products_path %>
-             </li>
-             <li>
-               <%= link_to"新規登録", new_customer_registration_path %>
-             </li>
-             <li>
-               <%= link_to"ログイン", new_customer_session_path %>
-             </li>
-           <% end %>
-           </ul>
-           </div>
-         </div>
+      
+         <%= ようこそ、@customer.family_name さん! %>
+        <li>
+         <%= link_to"マイページ", customers_my_page_path %>
+        </li>
+        <li>
+         <%= link_to"商品一覧", "customers_products_path" %>
+        </li>
+        <li>
+         <%= link_to"カート", "cart_items_path(current_customer)" %>
+        </li>
+        <li>
+         <%= link_to"ログアウト", destroy_customer_session_path %>
+        </li>
+        
+      <% elsif admin_signed_in? %>
+        <li>
+         <%= link_to"商品一覧", admin_products_path %>
+        </li>
+        <li>
+         <%= link_to"会員一覧", admin_custemer_path %>
+        </li>
+        <li>
+         <%= link_to"注文履歴一覧", admin_top_path %>
+        </li>
+        <li>
+         <%= link_to"ジャンル一覧", admin_product_genres_path %>
+        </li>
+        <li>
+         <%= link_to"ログアウト", destroy_customer_session_path %>
+        </li>
+        
+      <% else %>
+        <li>
+          <%= link_to"About", about_path %>
+        </li>
+        <li>
+          <%= link_to"商品一覧", customers_products_path %>
+         </li>
+         <li>
+           <%= link_to"新規登録", new_customer_registration_path %>
+         </li>
+         <li>
+           <%= link_to"ログイン", new_customer_session_path %>
+         </li>
+       <% end %>
       </nav>
     </header>
     
