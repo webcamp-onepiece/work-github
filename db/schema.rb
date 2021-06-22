@@ -63,20 +63,20 @@ ActiveRecord::Schema.define(version: 2021_06_16_051351) do
     t.integer "product_id"
     t.integer "count"
     t.integer "price_tax"
-    t.integer "making_status"
+    t.integer "making_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "total_price_tax"
-    t.string "payment_method"
+    t.integer "payment_method"
     t.string "receiver"
     t.string "receiver_postal_code"
     t.string "receiver_address"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,68 @@
+<h1>注文情報確認</h1>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      <td>
+        <attachment_image_tag(cart_item.product, :image, :fill, 60, 50, fallback: "no_image.jpg"), size: "60x50" %>
+        <%= cart_item.product.name %>
+      </td>
+      <td>
+        <%= price_tax(cart_item.product.price).to_s(:delimited) %>
+      </td>
+      <td>
+        <%= cart_item.count %>
+      </td>
+      <td>
+        <%= subtotal(cart_item).to_s(:delimited) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+    <tr>
+      <th>送料</th>
+      <td>
+        <%= @order.postage %>
+      </td>
+    </tr>
+    <tr>
+      <th>商品合計</th>
+      <td>
+        <%= subtotal(@cart_items).to_s(:delimited) %>
+      </td>
+    </tr>
+     <tr>
+      <th>請求金額</th>
+      <td>
+        <%= sumtotal(@cart_items).to_s(:delimited) %>
+      </td>
+    </tr>
+</table>
+
+<h4>支払い方法</h4>
+<%= @order.payment_method %>
+
+<h4>お届け先</h4>
+<%= "#{@order.postal_code} #{@order.address} 　#{@order.name}" %>
+
+<!--入力内容-->
+<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+  <%= f.hidden_field :receiver_postal_code %>
+  <%= f.hidden_field :receiver_address %>
+  <%= f.hidden_field :receiver %>
+  <%= f.hidden_field :payment_method %>
+  <%= f.hidden_field :total_price_tax %>
+  <%= f.hidden_field :existence, value: @existence %>
+  <%= f.submit "購入を確定する" %>
+<% end %>
