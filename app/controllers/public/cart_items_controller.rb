@@ -8,10 +8,10 @@ class Public::CartItemsController < ApplicationController
   
   def create
     @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    @cart_item.product_id = product.id
+    # @cart_item.customer_id = current_customer.id
+    # @cart_item.product_id = product.id
     @cart_item.save
-    redirect_to  public_cart_items_path
+    redirect_to  cart_items_path
   end
   
   def update
