@@ -1,0 +1,49 @@
+<h3>配送先登録/一覧</h3>
+
+
+<div class="container">
+<div class="row">
+        
+        
+        
+        
+  <%= render 'form', receiver: @receiver %>      
+        
+        
+<div class='col-md-2'></div>
+
+<div class='col-md-8'>
+
+<table>
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @receivers.each do |receiver| %>
+      <tr>
+        <td><%= receiver.postal_code %></td>
+        <td><%= receiver.address%></td>
+        <td><%= receiver.name %></td>
+        <td>
+           <div class="btn">
+    　　　　<%= link_to '編集する',edit_receiver_path(receiver),class: "btn btn-primary" %>
+ 　　　　　　 </div>
+
+          <div class="btn">
+           <%= link_to '削除する', receiver_path(receiver), method: :delete, class: "btn btn-danger" %>
+          </div>
+        </td>
+      </tr>
+           <% end %>
+  </tbody>
+</table>
+</div>
+<div class='col-md-2'></div>
+</div>
+</div>
