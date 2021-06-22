@@ -24,11 +24,14 @@ patch "customers/withdraw" => "public/customers#withdraw"
 
 
 get "customers/products" => "public/products#index"
-get "customers/product/:id" => "public/products#show", as: 'customers_product'
+get "customers/product/:id" => "public/products#show", as:'customers_product'
 
-resources :cart_items, only: [:index, :create, :update, :destroy] do
-  collection do
-    delete 'destroy_all'
+
+namespace :public do
+  resources :cart_items, only: [:index, :create, :update, :destroy] do
+    collection do
+      delete 'destroy_all'
+    end
   end
 end
 
