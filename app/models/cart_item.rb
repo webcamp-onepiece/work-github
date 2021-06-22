@@ -7,4 +7,9 @@ class CartItem < ApplicationRecord
     validates :customer_id
     validates :count
   end
+  
+  def add_tax_price
+    (self.price * 1.1).round
+  end
+  
 end

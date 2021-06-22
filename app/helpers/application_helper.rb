@@ -2,6 +2,7 @@ module ApplicationHelper
   # カート内商品
   def current_cart
     @cart_items = current_customer.cart_items
+    @total_price
   end
 
   #税込計算

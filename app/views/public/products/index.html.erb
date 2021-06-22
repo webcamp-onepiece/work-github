@@ -1,17 +1,22 @@
+<div class="container">
+ 
 <h1>商品一覧</h1><p>(全<%= @products.count %>件)</p>
 <!--ジャンル検索したらジャンル一覧-->
 
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap justify-content-center">
  <% @products.each do |product| %>
  
  <%= link_to customers_product_path(product) do %>
    <%= attachment_image_tag product, :image, :fill, 30, 30, fallback: "no_image.jpg" %>
-   <%= product.name %>
+   <br><%= product.name %>
+ <% end %>
+  <br>¥<%= product.add_tax_price.to_s(:delimited) %>
  <% end %>
    
-    <p>¥<%= product.add_tax_price.to_s(:delimited) %></p>
- <% end %>
+    
 </div>
 
 
 <%= paginate @product %>
+
+</div>
