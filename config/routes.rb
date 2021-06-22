@@ -43,7 +43,7 @@ end
     end
   end
 
-resource :receivers, only: [:index, :create, :edit, :update, :destroy,]
+resources :receivers, only: [:index, :create, :edit, :update, :destroy,]
 
   # 管理者
   namespace :admin do
