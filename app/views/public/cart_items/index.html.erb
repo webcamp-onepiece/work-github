@@ -1,5 +1,5 @@
 <h4>ショッピングカート</h4>
-<%= link_to"カートを空にする", destroy_all_public_cart_items_path, method: :delete %>
+<%= link_to"カートを空にする", destroy_all_cart_items_path, method: :delete %>
 
 <table>
   <thead>
@@ -16,7 +16,7 @@
      <% @cart_items.each do |cart_item| %>
      <tr>
         <td>
-          <%= attachment_image_tag cart_item, :image, :fill, 10, 10, fallback: "no_image.jpg" %>
+         
           <%= cart_item.product.name %>    
         </td>
         <td>
