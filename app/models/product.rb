@@ -11,5 +11,9 @@ class Product < ApplicationRecord
   end
 
   validates :is_active, inclusion: { in: [true, false] }
+  
+  def add_tax_price
+        (self.price * 1.1).round
+  end
 
 end

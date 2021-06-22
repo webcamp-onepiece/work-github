@@ -6,7 +6,9 @@ class Public::ProductsController < ApplicationController
   end
   
   def show
+    # binding.pry
     @product = Product.find(params[:id])
+    @cart_item = CartItem
   end
   
 end
