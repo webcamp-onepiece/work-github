@@ -57,6 +57,7 @@ class Public::OrdersController < ApplicationController
       @receiver.name = receiver_params[:receiver]
       @receiver.postal_code = receiver_params[:receiver_postal_code]
       @receiver.address = receiver_params[:receiver_address]
+      @receiver.save
     end
 
     # カート商品(CartItem)を注文商品(OrderProduct)にコピー
