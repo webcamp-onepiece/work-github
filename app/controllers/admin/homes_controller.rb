@@ -3,7 +3,7 @@ class Admin::HomesController < ApplicationController
 
   # topページ
   def top
-    @orders = Order.all
+    @orders = Order.all.reverse_order
   end
 
 end

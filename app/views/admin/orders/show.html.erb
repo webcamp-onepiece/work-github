@@ -6,23 +6,18 @@
     <p>購入者</p>
     <%= @order.customer.family_name %><%= @order.customer.first_name %>
     <p>配送先</p>
-    <td>
       〒<%= @order.receiver_postal_code %><br>
       <%= @order.receiver_address %><br>
       <%= @order.receiver %>
-    </td>
-  </tr>
-  <tr>
-    <th>支払方法</th>
-    <td><%= @order.payment_method %></td>
-  </tr>
-  <tr>
-    <th>注文ステータス</th>
+
+    <h4>支払方法</h4>
+    <p><%= @order.payment_method %></p>
+
+    <h4>注文ステータス</h4>
     <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
     <%= f.select :status, Order.statuses.keys %>
     <%= f.submit '更新' %>
     <% end %>
-  </tr>
 
   <table>
   <tr>
@@ -38,26 +33,21 @@
         <td><%= order_product.price_tax %></td>
         <td><%= order_product.count %></td>
         <td><%= order_product.price_tax * order_product.count %></td>
-        <td><%= form_with model: order_product, url: admin_order_order_product_path(order_product), method: :patch, local: true do |f| %>
-        <%= f.select :making_status, OrderProduct.making_statuses.keys %>
-        <%= f.submit '更新' %>
-        <% end %></td>
+        <td>
+        <%= form_with model: order_product, url: admin_order_order_product_path(@order, order_product), method: :patch, local: true do |f| %>
+          <%= f.select :making_status, OrderProduct.making_statuses.keys %>
+          <%= f.submit '更新' %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
 
-
-
-
-
-
-  <tr>
-    <th>配送料</t
-    <td><%= @order.postage %></td>
-  </tr>
-  <tr>
-    <th>ご請求額</th>
-    <td><%= order_total(@order) %></td>
-  </tr>
+  <h4>商品合計</h4>
+  <%= order_sumtotal(@order.order_products).to_s(:delimited) + "円" %>
+  <h4>送料</h4>
+  <%= @order.postage.to_s(:delimited) + "円" %>
+  <h4>請求金額合計</h4>
+  <%= order_total(@order).to_s(:delimited) + "円" %>
 
 
