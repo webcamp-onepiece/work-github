@@ -10,9 +10,9 @@
    <%= attachment_image_tag product, :image, :fill, 30, 30, fallback: "no_image.jpg" %>
    <br><%= product.name %>
  <% end %>
-  <br>¥<%= product.add_tax_price.to_s(:delimited) %>
+  <span>¥<%= product.add_tax_price.to_s(:delimited) %></span>
+  
  <% end %>
-   
     
 </div>
 
