@@ -1,29 +1,29 @@
 class Admin::CustomersController < ApplicationController
      before_action :authenticate_customer!
-    
+
     def index
         @customers = Customer.page(params[:page]).reverse_order
-    end    
-    
+    end
+
     def show
         @customer = Customer.find(params[:id])
-    end    
-    
-    
+    end
+
+
     def edit
         @customer = Customer.find(params[:id])
-    end    
-    
-    
+    end
+
+
     def update
           @customer = Customer.find(params[:id])
       if  @customer.update(customer_params)
           redirect_to admin_customers_path, notice: "You have updated user successfully."
       else
-         render edit 
-      end  
-    end 
-    
+         render edit
+      end
+    end
+
      private
   # ストロングパラメータ
   def customer_params
@@ -31,5 +31,5 @@ class Admin::CustomersController < ApplicationController
   end
 
 
-    
+
 end

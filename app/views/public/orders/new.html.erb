@@ -30,7 +30,7 @@
     <div class="form-check">
       <%= f.radio_button :receiver, "receiver_addresses", id: "receiver_addresses" %>
         <label for="receiver_addresses">登録済住所から選択</label><br>
-          <%= f.collection_select(:receiver_id, @receiver_addresses || [], :id, :postal_code_address, {prompt: ""}, class: "form-group") %>
+          <%= f..collection(:receiver_id, @receiver_addresses || [], :id, :postal_code_address, {prompt: ""}, class: "form-group") %>
     </div>
 
     <div class="form-check">
