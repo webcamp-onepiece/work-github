@@ -64,7 +64,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_cart
     @cart_items.each do |cart_item|
       OrderProduct.create(
-        order_id: @order_id,
+        order_id: @order.id,
         product_id: cart_item.product_id,
         count: cart_item.count,
         price_tax: subtotal(cart_item)
