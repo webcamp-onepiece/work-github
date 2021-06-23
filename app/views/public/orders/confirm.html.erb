@@ -39,13 +39,13 @@
     <tr>
       <th>商品合計</th>
       <td>
-        <%= subtotal(@cart_items).to_s(:delimited) %>
+        <%= sumtotal(@cart_items).to_s(:delimited) %>
       </td>
     </tr>
      <tr>
       <th>請求金額</th>
       <td>
-        <%= sumtotal(@cart_items).to_s(:delimited) %>
+        <%= (sumtotal(@cart_items) + @order.postage).to_s(:delimited) %>
       </td>
     </tr>
 </table>
@@ -54,7 +54,8 @@
 <%= @order.payment_method %>
 
 <h4>お届け先</h4>
-<%= "#{@order.postal_code} #{@order.address} 　#{@order.name}" %>
+〒<%= @order.receiver_postal_code %> <%= @order.receiver_address %>
+<%= @order.receiver %>
 
 <!--入力内容-->
 <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>

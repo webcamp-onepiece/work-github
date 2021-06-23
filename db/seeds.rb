@@ -21,6 +21,24 @@ Customer.create!(
   :updated_at => "2021-01-01"
 )
 
+  Receiver.create!(
+    :customer_id => 1,
+    :name => "梅⽊匠",
+    :postal_code => "2440812",
+    :address => "神奈川県横浜市⼾塚区柏尾町3-9-10",
+    :created_at => "2021-01-01",
+    :updated_at => "2021-01-01"
+  )
+
+    Receiver.create!(
+    :customer_id => 1,
+    :name => "⼭田太郎",
+    :postal_code => "1500041",
+    :address => "東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア2	4階",
+    :created_at => "2021-01-01",
+    :updated_at => "2021-01-01"
+  )
+
 Customer.create!(
   :family_name => "令和",
   :first_name => "道子",
