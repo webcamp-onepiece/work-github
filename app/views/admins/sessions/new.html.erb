@@ -1,5 +1,8 @@
 <h2>管理者ログイン</h2>
 
+<!--エラーメッセージ-->
+<%= render "admins/shared/error_messages", resource: resource %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <!--メールアドレス-->

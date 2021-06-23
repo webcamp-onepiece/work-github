@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  # ログインユーザーのみ可能
+  before_action :authenticate_customer!
   # 自作ヘルパーの呼び出し
   include ApplicationHelper
 
