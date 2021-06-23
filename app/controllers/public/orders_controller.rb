@@ -4,7 +4,8 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @receiver = Receiver.where(customer_id: current_customer)
+    @receiver_addresses = Receiver.where(customer_id: current_customer)
+    @new_address = Receiver.new(customer_id: current_customer.id)
   end
 
   def confirm
@@ -12,34 +13,33 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(customer_id: current_customer, payment_method: params[:order][:payment_method])
 
     #請求額(total_price_tax)
-    @order.total_price_tax = total(@order)
+    @order.total_price_tax = sumtotal(@cart_items) + @order.postage
 
-    # addressがcurrent_addressの場合
-    if params[:order][:addresses] == "current_address"
+    # receiverがcurrent_addressの場合
+    if params[:order][:receiver] == "current_address"
       @order.receiver = current_customer.family_name + current_customer.first_name
-      @order.receiver_postal_code = current_customer.residence
-      @order.receiver_address = current_customer.postal_code
+      @order.receiver_postal_code = current_customer.postal_code
+      @order.receiver_address = current_customer.address
 
-
-    # addressがreceiver_addressesの場合
-    elsif params[:order][:addresses] == "receiver_addresses"
+    # receiverがreceiver_addressesの場合
+    elsif params[:order][:receiver] == "receiver_addresses"
       receiver = Receiver.find(params[:order][:receiver_id])
       @order.receiver = receiver.name
       @order.receiver_postal_code = receiver.postal_code
       @order.receiver_address = receiver.address
 
-    # addressがnew_addressの場合
-    elsif params[:order][:addresses] == "new_address"
-      @order.receiver        = params[:order][:name]
-      @order.receiver_postal_code = params[:order][:postal_code]
-      @order.receiver_address     = params[:order][:address]
+    # receiverがnew_addressの場合
+    elsif params[:order][:receiver] == "new_address"
+      @order.receiver        = params[:receiver][:name]
+      @order.receiver_postal_code = params[:receiver][:postal_code]
+      @order.receiver_address     = params[:receiver][:address]
       @existence = "1"
 
-    # バリデーションエラー
-    unless @order.valid? == true
-      @receiver = Receiver.where(customer: current_customer)
-      render :new
-    end
+      # バリデーションエラー
+      unless @order.valid? == true
+        @receiver_addresses = Receiver.where(customer: current_customer)
+        render :new
+      end
     end
   end
 
@@ -51,7 +51,7 @@ class Public::OrdersController < ApplicationController
 
     # 配送先がnew_addressの場合、Receiverに新規保存
     if params[:order][:existence] == "1"
-      current_customer.receiver.create(address_params)
+      current_customer.receiver.create(receiver_params)
     end
 
     # カート商品(CartItem)を注文商品(OrderProduct)にコピー
