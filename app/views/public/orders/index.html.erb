@@ -17,7 +17,7 @@
         <td>
           〒<%= order.receiver_postal_code %><br>
           <%= order.receiver_address %><br>
-          <%= order.customer.family_name %><%= order.customer.first_name %>
+          <%= order.receiver %>
         </td>
         <td>
           <% order.order_products.each do |order_product| %>
