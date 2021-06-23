@@ -42,4 +42,5 @@ class Public::ReceiversController < ApplicationController
     params.require(:receiver).permit(:name, :postal_code, :address)
   end
 
+    
 end
