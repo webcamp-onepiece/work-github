@@ -21,13 +21,14 @@ class Admin::CustomersController < ApplicationController
       else
          render edit 
       end  
-    end    
+    end 
     
-        private
+     private
   # ストロングパラメータ
   def customer_params
     params.require(:customer).permit(:family_name, :first_name,:family_name_kana, :first_name_kana, :address, :phone_number, :postal_code, :email)
   end
-    
+
+
     
 end
