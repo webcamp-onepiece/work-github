@@ -33,6 +33,7 @@ class Public::OrdersController < ApplicationController
       @order.receiver        = params[:receiver][:name]
       @order.receiver_postal_code = params[:receiver][:postal_code]
       @order.receiver_address     = params[:receiver][:address]
+      @order.customer = current_customer
       @existence = "1"
 
       # バリデーションエラー
