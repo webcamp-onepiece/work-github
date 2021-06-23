@@ -1,4 +1,6 @@
 class Public::ReceiversController < ApplicationController
+     before_action :authenticate_customer!
+    
      def index
         @receivers = Receiver.all
         @receiver = Receiver.new

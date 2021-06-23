@@ -9,7 +9,7 @@
 
 <h3><%= @customer.family_name %><%=@customer.first_name %>さんの会員情報編集</h3>
 
-<%= form_with model: @customer, url: {controller: 'admin/customers', action: 'update'}, local:true do |f| %>
+<%= form_with model: @customer, url: "/customers/edit" local :true do |f| %>
 
  <div class="form-group">
         <%= f.label :name, "氏名" %>
