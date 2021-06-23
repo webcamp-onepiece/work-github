@@ -52,29 +52,33 @@ class Public::OrdersController < ApplicationController
 
     # 配送先がnew_addressの場合、Receiverに新規保存
     if params[:order][:existence] == "1"
-      current_customer.receiver.create(receiver_params)
+      @receiver = Receiver.new
+      @receiver.customer_id = current_customer.id
+      @receiver.name = receiver_params[:receiver]
+      @receiver.postal_code = receiver_params[:receiver_postal_code]
+      @receiver.address = receiver_params[:receiver_address]
     end
 
     # カート商品(CartItem)を注文商品(OrderProduct)にコピー
     @cart_items = current_cart
     @cart_items.each do |cart_item|
-    OrderProduct.create(
-      order_id: @order_id,
-      product_id: cart_item.product_id,
-      count: cart_item.count,
-      price_tax: subtotal(cart_item)
-    )
-    end
+      OrderProduct.create(
+        order_id: @order_id,
+        product_id: cart_item.product_id,
+        count: cart_item.count,
+        price_tax: subtotal(cart_item)
+      )
+      end
     # カート商品を空にする
     @cart_items.destroy_all
-	end
+  end
 
   def thankyou
   end
 
   def index
     @orders = current_customer.orders.order(created_at: :desc)
-	end
+  end
 
 	def show
 	  @order = Order.find(params[:id])
