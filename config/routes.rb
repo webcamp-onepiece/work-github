@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
     get "customers/my_page" => 'customers#show'
     get "customers/my_page/edit" => 'customers#edit', as: "my_page_edit"
-    patch "customers" => 'customers#update'
+    patch "customers/edit" => 'customers#update'
 
 
     get "customers/alert" => "customers#alert"

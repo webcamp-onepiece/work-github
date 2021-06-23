@@ -7,7 +7,7 @@
 
       <h1>会員情報編集</h1>
 
-      <%= form_with model:@customer,url: {controller: 'public/customers', action: 'update'},　local:true do |f| %>
+      <%= form_with model: @customer, url: "/customers/edit", local: true do |f| %>
 
       <div class="form-group">
         <%= f.label :name, "氏名" %>
