@@ -162,30 +162,6 @@ Product.create!(
   :updated_at => "2021-01-01"
 )
 
-CartItem.create!(
-  :customer_id => 1,
-  :product_id => 1,
-  :count => 1,
-  :created_at => "2021-01-02",
-  :updated_at => "2021-01-02"
-)
-
-CartItem.create!(
-  :customer_id => 1,
-  :product_id => 2,
-  :count => 2,
-  :created_at => "2021-01-02",
-  :updated_at => "2021-01-02"
-)
-
-CartItem.create!(
-  :customer_id => 1,
-  :product_id => 3,
-  :count => 1,
-  :created_at => "2021-01-02",
-  :updated_at => "2021-01-02"
-)
-
 Order.create!(
   :customer_id => 1,
   :postage => 800,
