@@ -2,7 +2,8 @@ class Public::ReceiversController < ApplicationController
      before_action :authenticate_customer!
     
      def index
-        @receivers = Receiver.all
+    
+        @receivers = current_customer.receivers
         @receiver = Receiver.new
      end
 
