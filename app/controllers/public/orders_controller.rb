@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(customer_id: current_customer, payment_method: params[:order][:payment_method])
 
     #請求額(total_price_tax)
-    @order.total_price_tax = sumtotal(@cart_items) + @order.postage
+    @order.total_price_tax = sumtotal(@cart_items)
 
     # receiverがcurrent_addressの場合
     if params[:order][:receiver] == "current_address"
@@ -87,7 +87,7 @@ class Public::OrdersController < ApplicationController
 	  @order = Order.find(params[:id])
     @order_products = @order.order_products
 	end
-	
+
   private
 
   def order_params

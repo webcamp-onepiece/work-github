@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   private
 
   #ログイン後の遷移先
-  def after_sign_in_path_for(resource)
-    case resource
+  def after_sign_in_path_for(resource_or_scope)
+    case resource_or_scope
     when Customer
       root_path
     when Admin
@@ -15,8 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
   # ログアウト後の遷移先
-  def after_sign_out_path_for(resource)
-    root_path
+  def after_sign_out_path_for(resource_or_scope)
+    case resource_or_scope
+    when :customer
+      root_path
+    when :admin
+      new_admin_session_path
+    end
   end
 
   protected
