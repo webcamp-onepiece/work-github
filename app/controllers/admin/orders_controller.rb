@@ -1,11 +1,12 @@
 class Admin::OrdersController < ApplicationController
+	before_action :authenticate_admin!
 
-  def show
-	  @order = Order.find(params[:id])
-    @order_products = @order.order_products
+	def show
+		@order = Order.find(params[:id])
+		@order_products = @order.order_products
 	end
 
-  def update
+	def update
 		@order = Order.find(params[:id])
 		if @order.update(order_params)
 		   flash[:success] = "注文ステータスを変更しました"
