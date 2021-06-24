@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
 
     get "customers/products" => "products#index"
-    get "customers/product/:id" => "products#show", as:'customers_product'
+    get "customers/product/:id" => "products#show", as: 'customers_product'
 
     #注文
     resources :orders, only: [:index,:new,:create,:show] do
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    get "top" => "homes#top"
+    get "/" => "homes#top", as: "top" 
     scope :products do
       resources :genres,only: [:index,:create,:edit,:update, :show]
     end
