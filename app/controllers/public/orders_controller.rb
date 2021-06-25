@@ -69,7 +69,7 @@ class Public::OrdersController < ApplicationController
         order_id: @order.id,
         product_id: cart_item.product_id,
         count: cart_item.count,
-        price_tax: subtotal(cart_item)
+        price_tax: price_tax(cart_item.product.price)
       )
       end
     # カート商品を空にする
