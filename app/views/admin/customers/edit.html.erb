@@ -7,7 +7,7 @@
 
 <div class="col-md-9">
 
-<h3><%= @customer.family_name %><%=@customer.first_name %>さんの会員情報編集</h3>
+<h1><%= @customer.family_name %><%=@customer.first_name %>さんの会員情報編集</h1>
 
 <%= form_with model: @customer, url: "/customers/edit", local: true do |f| %>
 
