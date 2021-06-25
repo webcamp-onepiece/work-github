@@ -6,7 +6,7 @@ class Customers::SessionsController < Devise::SessionsController
   
   def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
-      if @customer.is_deleted == false
+      if @customer.is_deleted == true
         redirect_to new_customer_session_path
       end  
   end
