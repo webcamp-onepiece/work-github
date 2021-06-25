@@ -74,6 +74,10 @@ main a {
   text-decoration: dashed underline;
 }
 
+ a.btn {
+   text-decoration: none;
+ }
+
 main a :hover {
   color: #325d80;
   text-decoration: dashed underline;
