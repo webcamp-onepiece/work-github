@@ -1,18 +1,19 @@
-<table>
-  <tr>
-    <td>
-    　<%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
-    </td>
-    <td>
-      <%= @product.name %>
-      <br><%= @product.description %>
-      <br><strong>¥<%= (@product.add_tax_price.to_s(:delimited)) %>(税込)</strong>
-      <%= form_with model:@cart_item, url: cart_items_path, method: :post, local:true do |f| %>
-      <%= f.label :count, "個数選択" %>
-      <%= f.select :count, [1,2,3,4,5,6,7,8,9,10], {selected: 1} %>
-      <%= f.submit"カートに入れる", class:"btn btn-success" %>
-      <%= f.hidden_field:product_id, :value => @product.id %>
+<div class="container">
+  <div class="row">
+      <div class="col-md-5 mx-auto text-center">
+    　   <%= attachment_image_tag @product, :image, :fill, 300, 300, fallback: "no_image.jpg", size: '300x300' %>
+    　</div>
+    　<div class="col-md-5 mx-auto">
+        <h2><%= @product.name %></h2>
+        <br>
+        <%= @product.description %>
+        <br><strong>¥<%= (@product.add_tax_price.to_s(:delimited)) %>(税込)</strong>
+        <%= form_with model:@cart_item, url: cart_items_path, method: :post, local:true do |f| %>
+        <%= f.label :count, "個数選択" %>
+        <%= f.select :count, [1,2,3,4,5,6,7,8,9,10], {selected: 1} %>
+        <%= f.submit"カートに入れる", class:"btn btn-success" %>
+        <%= f.hidden_field:product_id, :value => @product.id %>
       <% end %>
-    </td>
-  </tr>
-</table>
+    </div>
+  </div>
+</div>
