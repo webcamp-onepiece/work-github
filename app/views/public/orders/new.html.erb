@@ -1,4 +1,4 @@
-<h3>注文情報入力</h3>
+<h1>注文情報入力</h1>
 
 <!--エラーメッセージ-->
 <%= render "layouts/error", model: @order %>
@@ -6,7 +6,7 @@
 <% if current_customer.cart_items.present? %>　<!--カートにアイテムがある場合-->
   <%= form_with model: @order, url: confirm_orders_path, method: :post, local: true do |f| %>
 
-    <h4><%= f.label :payment_method, "支払い方法" %></h4>
+    <h2><%= f.label :payment_method, "支払い方法" %></h2>
 
     <div class="form-check">
     <%= f.radio_button :payment_method, :"クレジットカード", checked: true, id: "credit_card" %>
@@ -18,7 +18,7 @@
     <%= f.label :"銀行振込", for: "bank_transfer" %>
     </div>
 
-    <h4><%= f.label :receiver, "お届け先" %></h4>
+    <h2><%= f.label :receiver, "お届け先" %></h2>
 
     <div class="form-check">
       <%= f.radio_button :receiver, "current_address", checked: true, id: "current_address" %>

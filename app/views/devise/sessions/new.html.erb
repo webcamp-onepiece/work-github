@@ -1,5 +1,5 @@
-<h2>ログイン</h2>
-<h3>会員の方はこちらからログイン</h3>
+<h1>Log in</h1>
+<h2>会員の方はこちらからログイン</h2>
 <!--エラーメッセージ-->
 <%= render "devise/shared/error_messages", resource: resource %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,6 +20,6 @@
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
-
-<h3>会員登録がお済みでない方</h3>
+<br>
+<h2>会員登録がお済みでない方</h2>
 <%= render "devise/shared/links" %>

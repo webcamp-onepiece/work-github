@@ -21,6 +21,16 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
 body {
   background-color: #fffaf0;
   background-image:
@@ -39,6 +49,11 @@ header a {
   text-decoration: none;
 }
 
+header .nav-link:hover {
+  color: #fff;
+  text-decoration: dashed underline;
+}
+
 main {
   width: 90%;
   margin: 2rem auto;
@@ -47,6 +62,11 @@ main {
   border-radius: 3rem;
   color: #4d4233;
   line-height: 1.8;
+  background-color: rgba(255,255,255,0.8);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
 main a {
@@ -65,10 +85,12 @@ footer {
 }
 
 .logo {
-  width: 5rem;
-  height: 5rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .title {
   margin: 0 auto;
+  background-color: #fff;
+  border-radius: 50%;
 }
