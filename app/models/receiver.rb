@@ -11,6 +11,6 @@ class Receiver < ApplicationRecord
 
   # 郵便番号と住所を連結して表示
   def postal_code_address
-    "〒" + self.postal_code.to_s + self.address
+    "〒" + self.postal_code.to_s + " " + self.address +  " " + self.name
   end
 end
