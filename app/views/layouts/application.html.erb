@@ -97,7 +97,11 @@
     <!--フラッシュ-->
       <div class="notice"><%= notice %></div>
       <div class="notice"><%= alert %></div>
-    <main><%= yield %></main>
+    <main>
+           <div class="notice"><%= notice %></div>
+      <div class="notice"><%= alert %></div>
+      
+      <%= yield %></main>
 
 
     <footer>
