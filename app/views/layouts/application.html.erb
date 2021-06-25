@@ -6,12 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!--フォント-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
@@ -19,6 +16,7 @@
 
   <body>
     <header>
+
       <div class="container">
         <div class="row">
 
@@ -49,9 +47,11 @@
             </li>
             <li class="nav-item">
              <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "nav-link" %>
-            </li>
 
+            </li>
+    
           <% elsif admin_signed_in? %>
+
             <li class="nav-item">
              <%= link_to "Products", admin_products_path, class: "nav-link" %>
             </li>
@@ -66,14 +66,15 @@
             </li>
             <li class="nav-item">
              <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %>
-            </li>
 
+            </li>
+            
             <%= form_with url:admin_products_path, method: :get, local: true do |f| %>
             <%= f.text_field 'search[value]' %>
             <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
             <%= f.submit :"検索" %>
             <% end %>
-
+    
           <% else %>
 
             <li class="nav-item">
@@ -89,18 +90,19 @@
                <%= link_to"Log in", new_customer_session_path, class: "nav-link" %>
              </li>
           <% end %>
-           </ul>
-          </nav>
-      </div>
-
+         </ul>
+      </nav>
+      
     </header>
 
+      
     <main>
-        <!--フラッシュ-->
-        <div class="notice"><%= notice %></div>
-        <div class="notice"><%= alert %></div>
-      <%= yield %>
-    </main>
+      <!--フラッシュ-->
+      <div class="notice"><%= notice %></div>
+      <div class="notice"><%= alert %></div>
+      
+      <%= yield %></main>
+
 
     <footer>
      <div class="container mt-5">
