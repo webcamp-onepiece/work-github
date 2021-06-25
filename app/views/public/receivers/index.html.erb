@@ -1,49 +1,44 @@
-<h3>配送先登録/一覧</h3>
+<h1>配送先一覧/登録</h1>
 
 
 <div class="container">
 <div class="row">
         
         
-        
-        
-  <%= render 'form', receiver: @receiver %>      
-        
-        
 <div class='col-md-2'></div>
 
 <div class='col-md-8'>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>宛名</th>
-      <th></th>
+      <th  style="width: 20%">郵便番号</th>
+      <th  style="width: 20%">住所</th>
+      <th  style="width: 20%">宛名</th>
+      <th  style="width: 20%"></th>
     </tr>
   </thead>
   
   <tbody>
     <% @receivers.each do |receiver| %>
       <tr>
-        <td><%= receiver.postal_code %></td>
-        <td><%= receiver.address%></td>
-        <td><%= receiver.name %></td>
-        <td>
-           <div class="btn">
-    　　　　<%= link_to '編集する',edit_receiver_path(receiver),class: "btn btn-primary" %>
- 　　　　　　 </div>
-
-          <div class="btn">
-           <%= link_to '削除する', receiver_path(receiver), method: :delete, class: "btn btn-danger" %>
-          </div>
+        <td  style="width: 20%"><%= receiver.postal_code %></td>
+        <td  style="width: 20%"><%= receiver.address%></td>
+        <td  style="width: 20%"><%= receiver.name %></td>
+        <td  style="width: 40%">
+    　　　　<%= link_to '編集する',edit_receiver_path(receiver),class: "btn btn-outline-secondary" %>
+           <%= link_to '削除する', receiver_path(receiver), method: :delete, class: "btn btn-outline-secondary" %>
         </td>
       </tr>
            <% end %>
   </tbody>
 </table>
+
+ <%= render 'form', receiver: @receiver %>   
 </div>
 <div class='col-md-2'></div>
+
+
+ 
 </div>
 </div>

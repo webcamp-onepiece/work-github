@@ -39,6 +39,11 @@ body {
   font-family: 'M PLUS 1p', "ヒラギノ角ゴ ProN", "メイリオ", sans-serif;
 }
 
+header .nav-link:hover {
+  color: #fff;
+  text-decoration: dashed underline;
+}
+
 header {
   background-color: #325d80;
   color: #fff;
@@ -49,15 +54,10 @@ header a {
   text-decoration: none;
 }
 
-header .nav-link:hover {
-  color: #fff;
-  text-decoration: dashed underline;
-}
-
 main {
   width: 90%;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: #fff;
   border-radius: 3rem;
   color: #4d4233;
@@ -85,8 +85,8 @@ footer {
 }
 
 .logo {
-  width: 8rem;
-  height: 8rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .title {
