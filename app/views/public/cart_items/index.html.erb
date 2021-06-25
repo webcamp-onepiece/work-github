@@ -2,13 +2,13 @@
 
 
 <div class="container">
-    <h4>ショッピングカート</h4>
+    <h1>ショッピング</h1>
     
     <div class="text-right pb-3">
     　<%= link_to"カートを空にする", destroy_all_cart_items_path, method: :delete, data: { confirm: "カート内を全て削除してもよろしいですか？" }, class:"btn btn-sm btn-danger" %>
     </div>
     
-    <table>
+    <table class="table table-striped">
       <thead>
         <tr>
          <th>商品名</th>
@@ -50,7 +50,7 @@
     
              <%= link_to"買い物を続ける", root_path, class:"btn btn-sm btn-primary m-3" %>
         
-    <table>
+    <table class="table table-striped">
         <tr>
            <td>合計金額</td>
            <td><%= @sum.to_s(:delimited) %></td>
