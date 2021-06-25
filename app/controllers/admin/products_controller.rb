@@ -3,6 +3,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @product = Product.page(params[:page]).reverse_order
   end
 
 
