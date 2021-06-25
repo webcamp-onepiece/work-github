@@ -39,6 +39,11 @@ body {
   font-family: 'M PLUS 1p', "ヒラギノ角ゴ ProN", "メイリオ", sans-serif;
 }
 
+header .nav-link:hover {
+  color: #fff;
+  text-decoration: dashed underline;
+}
+
 header {
   background-color: #325d80;
   color: #fff;
