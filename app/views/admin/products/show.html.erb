@@ -1,51 +1,42 @@
-<div class="container px-5 px-sm-0" >
+<div class="container" >
   <h1>商品詳細</h1>
   <div class="row">
     <div class="col-md-3">
-      <div id="img_field">
-          <%= attachment_image_tag(@product, :image, size: "300x220", fallback: "no_image.jpg") %>
+      <div>
+        <%= attachment_image_tag(@product, :image, size: "300x220", fallback: "no_image.jpg") %>
       </div>
     </div>
-    <div class="col-md-8 offset-md-1">
-      <table>
-      <div class="field">
-    	  <tr>
-    			<td>商品名</td>
-    			<td><%= @product.name %></td>
-    		</tr>
-      </div>
-      <div class="field">
-    		<tr>
-    			<td>商品説明</td>
-    			<td><%= @product.description %></td>
-    		</tr>
-      </div>
-      <div class="field">
-    		<tr>
-    			<td>ジャンル</td>
-    			<td><%= @product.genre.name %></td>
-    		</tr>
-      </div>
-      <div class="field">
-    		<tr>
-    			<td>税込価格</br>(税抜価格)</td>
-    			<td><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %>)円</td>
-    		</tr>
-      </div>
-      <div class="field">
-    		<tr>
-    			<td>販売ステータス</td>
-          <% if @product.is_active == true %>
-    				　<td>販売中</td>
+    
+    <div class="col-md-1"></div>
+    
+    <div class="col-md-3">
+      <div>商品名</div>
+      <div>商品説明</div>
+      <div>ジャンル</div>
+      <div>税込価格(税抜価格)</div>
+      <br>
+      <div>販売ステータス</div>
+    </div>
+    
+    <div class="col-md-4">
+      <div><%= @product.name %></div>
+      <div><%= @product.description %></div>
+      <div><%= @product.genre.name %></div>
+      <div><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %>)円</div>
+      <div> 
+         <% if @product.is_active == true %>
+    				　<div>販売中</div>
     			<% else @product.is_active == false %>
-    				　<td>販売停止中</td>
+    				　<div>販売停止中</div>
     			<% end %>
-    		</tr>
-      </div>
-      </table>
-      <div class="actions col-xs-9">
-      	<%= link_to "編集する", edit_admin_product_path(@product) %>
-      </div>
+    	 </div>
+    	 <br>
+         <%= link_to "編集する", edit_admin_product_path(@product) %>
     </div>
-  </div>
-</div>
+     
+    
+      
+      
+    			
+    
+     
