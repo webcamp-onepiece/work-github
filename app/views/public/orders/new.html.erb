@@ -1,61 +1,67 @@
-<h1>注文情報入力</h1>
+<div class="container">
 
-<!--エラーメッセージ-->
-<%= render "layouts/error", model: @order %>
+    <h1>注文情報入力</h1>
 
-<% if current_customer.cart_items.present? %>　<!--カートにアイテムがある場合-->
-  <%= form_with model: @order, url: confirm_orders_path, method: :post, local: true do |f| %>
+    <!--エラーメッセージ-->
+    <%= render "layouts/error", model: @order %>
 
-    <h2><%= f.label :payment_method, "支払い方法" %></h2>
+    <% if current_customer.cart_items.present? %>　<!--カートにアイテムがある場合-->
+      <%= form_with model: @order, url: confirm_orders_path, method: :post, local: true do |f| %>
 
-    <div class="form-check">
-    <%= f.radio_button :payment_method, :"クレジットカード", checked: true, id: "credit_card" %>
-    <%= f.label :"クレジットカード", for: "credit_card" %>
-    </div>
+        <h2><%= f.label :payment_method, "支払い方法" %></h2>
 
-    <div class="form-check">
-    <%= f.radio_button :payment_method, :"銀行振込", id: "bank_transfer" %>
-    <%= f.label :"銀行振込", for: "bank_transfer" %>
-    </div>
+        <div class="form-check">
+        <%= f.radio_button :payment_method, :"クレジットカード", checked: true, id: "credit_card" %>
+        <%= f.label :"クレジットカード", for: "credit_card" %>
+        </div>
 
-    <h2><%= f.label :receiver, "お届け先" %></h2>
+        <div class="form-check">
+        <%= f.radio_button :payment_method, :"銀行振込", id: "bank_transfer" %>
+        <%= f.label :"銀行振込", for: "bank_transfer" %>
+        </div>
 
-    <div class="form-check">
-      <%= f.radio_button :receiver, "current_address", checked: true, id: "current_address" %>
-        <label for="current_address">ご自身の住所</label><br>
-          <%= "#{current_customer.postal_code} #{current_customer.address}" %><br>
-          <%= "#{current_customer.family_name} #{current_customer.first_name}" %>
-    </div>
+        <h2><%= f.label :receiver, "お届け先" %></h2>
 
-    <div class="form-check">
-      <%= f.radio_button :receiver, "receiver_addresses", id: "receiver_addresses" %>
-        <label for="receiver_addresses">登録済住所から選択</label><br>
-          <%= f.collection_select(:receiver_id, @receiver_addresses || [], :id, :postal_code_address, {prompt: ""}, class: "form-group") %>
-    </div>
+        <div class="form-check">
+          <%= f.radio_button :receiver, "current_address", checked: true, id: "current_address" %>
+            <label for="current_address">ご自身の住所</label><br>
+              <%= "#{current_customer.postal_code} #{current_customer.address}" %><br>
+              <%= "#{current_customer.family_name} #{current_customer.first_name}" %>
+        </div>
 
-    <div class="form-check">
-      <%= f.radio_button :receiver, "new_address", id: "new_address" %>
-        <label for="new_address">新しいお届け先</label><br>
-          <%= fields_for @new_address do |new| %>
-            <div class="form-group">
-              <%= new.label :postal_code, "郵便番号(ハイフンなし)" %>
-              <%= new.text_field :postal_code, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= new.label :address, "住所" %>
-              <%= new.text_field :address, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= new.label :name, "宛名" %>
-              <%= new.text_field :name, class: 'form-control' %>
-            </div>
-          <% end %>
-    </div>
+        <div class="form-check">
+          <%= f.radio_button :receiver, "receiver_addresses", id: "receiver_addresses" %>
+            <label for="receiver_addresses">登録済住所から選択</label><br>
+              <%= f.collection_select(:receiver_id, @receiver_addresses || [], :id, :postal_code_address, {prompt: ""}, class: "form-group") %>
+        </div>
 
-    <%= f.submit "確認画面へ進む" %>
+        <div class="form-check">
+          <%= f.radio_button :receiver, "new_address", id: "new_address" %>
+            <label for="new_address">新しいお届け先</label><br>
+              <%= fields_for @new_address do |new| %>
+                <div class="form-group">
+                  <%= new.label :postal_code, "郵便番号(ハイフンなし)" %>
+                  <%= new.text_field :postal_code, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= new.label :address, "住所" %>
+                  <%= new.text_field :address, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= new.label :name, "宛名" %>
+                  <%= new.text_field :name, class: 'form-control' %>
+                </div>
+              <% end %>
+        </div>
+        <div class="row">
+          <div class="mx-auto my-2">
+            <%= f.submit "確認画面へ進む", class: 'btn btn-outline-secondary' %>
+          </div>
+        </div>
 
-  <% end %>
+      <% end %>
 
-<% else %>　<!-- カートが空の場合 -->
-  <p>ショッピングカートに商品がありません。</p>
-<% end %>
+    <% else %>　<!-- カートが空の場合 -->
+      <p>ショッピングカートに商品がありません。</p>
+    <% end %>
+</div>
