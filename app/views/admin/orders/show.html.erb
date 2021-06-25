@@ -1,6 +1,6 @@
-<h2>注文履歴詳細</h2>
+<h1>注文詳細</h1>
 
-<h4>注文情報</h4>
+<h2>注文情報</h2>
     <p>注文日</p>
     <%= @order.created_at.to_s(:datetime_jp) %></td>
     <p>購入者</p>
@@ -10,16 +10,16 @@
       <%= @order.receiver_address %><br>
       <%= @order.receiver %>
 
-    <h4>支払方法</h4>
+    <h2>支払方法</h2>
     <p><%= @order.payment_method %></p>
 
-    <h4>注文ステータス</h4>
+    <h2>注文ステータス</h2>
     <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
     <%= f.select :status, Order.statuses.keys %>
     <%= f.submit '更新' %>
     <% end %>
 
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>商品名</th>
@@ -47,11 +47,11 @@
     </tbody>
   </table>
 
-  <h4>商品合計</h4>
+  <h2>商品合計</h2>
   <%= order_sumtotal(@order.order_products).to_s(:delimited) + "円" %>
-  <h4>送料</h4>
+  <h2>送料</h2>
   <%= @order.postage.to_s(:delimited) + "円" %>
-  <h4>請求金額合計</h4>
+  <h2>請求金額合計</h2>
   <%= order_total(@order).to_s(:delimited) + "円" %>
 
 
