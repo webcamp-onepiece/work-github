@@ -1,42 +1,49 @@
 <div class="container" >
   <h1>商品詳細</h1>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-5 mx-auto text-center">
       <div>
-        <%= attachment_image_tag(@product, :image, size: "300x220", fallback: "no_image.jpg") %>
+        <%= attachment_image_tag@product, :image, size: "300x300", fallback: "no_image.jpg", size: "300x300" %>
       </div>
     </div>
-    
-    <div class="col-md-1"></div>
-    
-    <div class="col-md-3">
-      <div>商品名</div>
-      <div>商品説明</div>
-      <div>ジャンル</div>
-      <div>税込価格(税抜価格)</div>
-      <br>
-      <div>販売ステータス</div>
+
+    <div class="col-md-7 mx-auto">
+      <div class="row">
+        <div class="col-md-3 small">商品名</div>
+        <div class="col-md-9"><%= @product.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 small">商品説明</div>
+        <div class="col-md-9"><%= @product.description %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 small">ジャンル</div>
+        <div class="col-md-9"><%= @product.genre.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 small">税込価格(税抜価格)</div>
+        <div class="col-md-9"><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %>)円</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 small">販売ステータス</div>
+        <div class="col-md-9">
+          <% if @product.is_active == true %>
+            <div>販売中</div>
+            <% else @product.is_active == false %>
+            <div>販売停止中</div>
+            <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to "編集", edit_admin_product_path(@product), class: "btn btn-outline-secondary mt-3" %>
+        </div>
+      </div>
     </div>
-    
-    <div class="col-md-4">
-      <div><%= @product.name %></div>
-      <div><%= @product.description %></div>
-      <div><%= @product.genre.name %></div>
-      <div><%= @product.add_tax_price.to_s(:delimited) %>(<%= @product.price %>)円</div>
-      <div> 
-         <% if @product.is_active == true %>
-    				　<div>販売中</div>
-    			<% else @product.is_active == false %>
-    				　<div>販売停止中</div>
-    			<% end %>
-    	 </div>
-    	 <br>
-         <%= link_to "編集する", edit_admin_product_path(@product) %>
-    </div>
-     
-    
-      
-      
-    			
-    
-     
+  </div>
+</div>
+
+
+
+
+
