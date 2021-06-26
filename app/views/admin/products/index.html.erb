@@ -1,18 +1,18 @@
 <div class="container">
   <h1 class="text-center">商品一覧</h1>
-      
-      <div class="my-3">
+
+      <div class="my-3 mr-5 text-right">
         <%= link_to"商品新規登録", new_admin_product_path, class: "btn btn-outline-secondary" %>
       </div>
-      
+
         <table class="table table-sm table-striped">
           <thead>
             <tr>
               <th style="width: 10%">商品ID</th>
               <th style="width: 30%">商品名</th>
-              <th style="width: 20%">税抜価格</th>
-              <th style="width: 20%">ジャンル</th>
-              <th style="width: 20%">ステータス</th>
+              <th class="text-center" style="width: 20%">税抜価格</th>
+              <th class="text-center" style="width: 20%">ジャンル</th>
+              <th class="text-center" style="width: 20%">ステータス</th>
             </tr>
           </thead>
           <tbody>
@@ -26,17 +26,17 @@
                     <%= product.name %>
                   <% end %>
                 </td>
-                <td>
+                <td  class="text-center">
                   ¥<%= product.price.to_s(:delimited) %>
                 </td>
-                <td>
+                <td  class="text-center">
                   <%= product.genre.name %>
                 </td>
-                <td>
+                <td class="text-center">
                   <% if product.is_active == true %>
-          					<p>販売中</p>
+          					<p style="color: limegreen">販売中</p>
           				<% elsif product.is_active == false %>
-          					<p>販売停止中</p>
+          					<p style="color: darkgray">販売停止中</p>
           				<% end %>
                 </td>
               </tr>
@@ -44,6 +44,6 @@
           </tbody>
         </table>
     </div>
-    
+
     <%= paginate @product %>
 </div>

@@ -1,10 +1,10 @@
-<div class="col-xs-12">
+<div class="container">
   <h1>商品新規登録</h1>
   <%= form_with model: [:admin, @product], local: true do |f| %>
-    <div class="col-xs-6">
-      <%= render "form_product", f: f, genres: @genres %>
-      <div class="actions col-xs-7">
-	      <%= f.submit "新規登録", class: "btn btn-primary btn-lg pull-right" %>
+    <%= render "form_product", f: f, genres: @genres %>
+    <div class="row">
+      <div class="mx-auto my-2">
+        <%= f.submit "新規登録", class: "btn btn-outline-secondary" %>
       </div>
     </div>
   <% end %>
