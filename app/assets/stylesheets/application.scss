@@ -21,15 +21,7 @@
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 
-h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0;
-}
 
 body {
   background-color: #fffaf0;
@@ -37,11 +29,6 @@ body {
   linear-gradient(-90deg, #f5e4c4 50%, transparent 50%);
   background-size: 4rem 4rem;
   font-family: 'M PLUS 1p', "ヒラギノ角ゴ ProN", "メイリオ", sans-serif;
-}
-
-header .nav-link:hover {
-  color: #fff;
-  text-decoration: dashed underline;
 }
 
 header {
@@ -62,21 +49,12 @@ main {
   border-radius: 3rem;
   color: #4d4233;
   line-height: 1.8;
-  background-color: rgba(255,255,255,0.8);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
 }
 
 main a {
   color: #4d4233;
   text-decoration: dashed underline;
 }
-
- a.btn {
-   text-decoration: none;
- }
 
 main a :hover {
   color: #325d80;
@@ -85,7 +63,8 @@ main a :hover {
 
 footer {
   background-color: #325d80;
-  color: #fff;
+  color: #fff
+  
 }
 
 #page-top {
