@@ -74,7 +74,7 @@
               <div class="form-group">
                 <%= form_with url:admin_products_path, method: :get, local: true do |f| %>
                 <%= f.text_field 'search[value]', :placeholder => "ジャンル名", class: "form-control" %>
-                <%= f.submit :"検索" %>
+                <%= f.submit :"検索", class:"btn btn-outline-light" %>
                 <% end %>
               </div>
               </div>
@@ -118,7 +118,7 @@
           <i class="fas fa-chevron-circle-up"></i>
         <% end %>
       　<div class="mx-auto">
-        　<p>@one piece</p>
+        　<p>@NAGANO CAKE</p>
     　　</div>
     　 </div>
     　</div>
