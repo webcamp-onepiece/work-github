@@ -68,7 +68,17 @@
              <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %>
             </li>
            </ul>
-
+           
+            <div class="search-form">
+            　<div class ="form-inline">
+              <div class="form-group">
+                <%= form_with url:admin_products_path, method: :get, local: true do |f| %>
+                <%= f.text_field 'search[value]', :placeholder => "ジャンル名", class: "form-control" %>
+                <%= f.submit :"検索" %>
+                <% end %>
+              </div>
+              </div>
+            </div>
 
           <% else %>
            <ul class="nav nav-fill mb-1">
@@ -88,11 +98,6 @@
           <% end %>
 
       </nav>
-      <div id="social">
-        <i class="fab fa-facebook-square"></i>
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-instagram"></i>
-      </div>
     </div>
 
     </header>
