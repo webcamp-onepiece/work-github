@@ -63,13 +63,22 @@ main {
   background-color: #fff;
   border-radius: 3rem;
   color: #4d4233;
-  line-height: 1.8;
+  line-height: 1.8;  background-color: rgba(255,255,255,0.8);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
 main a {
   color: #4d4233;
   text-decoration: dashed underline;
 }
+
+ a.btn {
+   text-decoration: none;
+ }
+
 
 main a :hover {
   color: #325d80;
