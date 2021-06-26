@@ -32,19 +32,18 @@
 
 
          <nav class="row justify-content-center">
-           
+
 
             <% if customer_signed_in? %>
-             <!--<p>ようこそ、<%= current_customer.family_name %>さん!</p>-->
           <ul class="nav nav-fill mb-1">
-            <li class="nav-item">
-             <%= link_to "My Page", customers_my_page_path, class: "nav-link" %>
-            </li>
             <li class="nav-item">
              <%= link_to "Menu", customers_products_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
              <%= link_to "Basket", cart_items_path(current_customer), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+             <%= link_to "My Page", customers_my_page_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
              <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "nav-link" %>
@@ -69,7 +68,7 @@
              <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %>
             </li>
            </ul>
-            
+           
             <div class="search-form">
             　<div class ="form-inline">
               <div class="form-group">
@@ -97,7 +96,7 @@
              </li>
            </ul>
           <% end %>
-         
+
       </nav>
     </div>
 
