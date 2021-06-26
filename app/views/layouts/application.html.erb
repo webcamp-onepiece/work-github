@@ -32,10 +32,11 @@
 
 
          <nav class="row justify-content-center">
-           <ul class="nav nav-fill mb-1">
+           
 
             <% if customer_signed_in? %>
              <!--<p>ようこそ、<%= current_customer.family_name %>さん!</p>-->
+          <ul class="nav nav-fill mb-1">
             <li class="nav-item">
              <%= link_to "My Page", customers_my_page_path, class: "nav-link" %>
             </li>
@@ -47,11 +48,11 @@
             </li>
             <li class="nav-item">
              <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "nav-link" %>
-
             </li>
+          </ul>
 
           <% elsif admin_signed_in? %>
-
+           <ul class="nav nav-fill mb-1">
             <li class="nav-item">
              <%= link_to "Products", admin_products_path, class: "nav-link" %>
             </li>
@@ -67,19 +68,11 @@
             <li class="nav-item">
              <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %>
             </li>
-
-          <div class="form-group">
-             <div class="form-inline ms-auto" >
-                <%= form_with url:admin_products_path, method: :get, local: true do |f| %>
-                <%= f.text_field 'search[value]' %>
-                <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-                <%= f.submit :"検索" %>
-                <% end %>
-             </div>
-          </div>
-
+           </ul>
+            
+           
           <% else %>
-
+           <ul class="nav nav-fill mb-1">
             <li class="nav-item">
               <%= link_to"About", about_path, class: "nav-link" %>
             </li>
@@ -92,8 +85,9 @@
              <li class="nav-item">
                <%= link_to"Log in", new_customer_session_path, class: "nav-link" %>
              </li>
+           </ul>
           <% end %>
-         </ul>
+         
       </nav>
     </div>
 
