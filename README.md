@@ -11,7 +11,7 @@
 * 支払い方法はクレジットカード、銀行振り込みから選択できる
 
 ## ER図
-![Uploading ER.png…]()
+![ER.png](https://user-images.githubusercontent.com/81802888/123554279-2c2d7e80-d7ba-11eb-9363-eeef5ae0ffa3.png)
 
 ### 用語の定義
 * 顧客：ながのCAKEを購入する人（客）
@@ -32,7 +32,7 @@
 
 
 #### 管理者側
-![Uploading admin_apply.png…]()
+![admin_apply.png](https://user-images.githubusercontent.com/81802888/123554314-5848ff80-d7ba-11eb-83a4-0646bf3a6f79.png)
 
 
 
