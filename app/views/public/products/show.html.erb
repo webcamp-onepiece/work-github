@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <div class="col-md-5 mx-auto text-center">
-    　   <%= attachment_image_tag @product, :image, :fill, 300, 300, fallback: "no_image.jpg", size: '300x300' %>
+    　   <%= attachment_image_tag @product, :image,size: "300x300", fallback: "no_image.jpg", size: '300x300' %>
     　</div>
     　<div class="col-md-5 mx-auto mt-5">
         <h2><%= @product.name %></h2>
