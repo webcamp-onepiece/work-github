@@ -99,7 +99,17 @@ main a :hover {
   text-decoration: dashed underline;
 }
 
+.footerFixed{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 7rem;
+    box-sizing: border-box;
+}
+
 footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
   background-color: #325d80;
   color: #fff
 
