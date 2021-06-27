@@ -30,8 +30,8 @@ Rails.application.routes.draw do
     end
 
 
-    get "customers/products" => "products#index"
-    get "customers/product/:id" => "products#show", as: 'customers_product'
+    get "products" => "products#index"
+    get "product/:id" => "products#show", as: 'customers_product'
 
     #注文
     resources :orders, only: [:index,:new,:create,:show] do
