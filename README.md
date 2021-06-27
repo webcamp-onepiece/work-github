@@ -28,7 +28,7 @@
 
 ## アプリケーション詳細設計書
 #### 顧客側
-![Uploading customer_apply.png…]()
+!(assets/images/README/customer_apply.png)
 
 
 #### 管理者側
