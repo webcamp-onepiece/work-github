@@ -3,8 +3,8 @@
 
 <div class="container">
 <div class="row">
-        
-        
+
+
 <div class='col-md-2'></div>
 
 <div class='col-md-8'>
@@ -12,33 +12,33 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th  style="width: 20%">郵便番号</th>
-      <th  style="width: 20%">住所</th>
-      <th  style="width: 20%">宛名</th>
-      <th  style="width: 20%"></th>
+      <th style="width: 10%">郵便番号</th>
+      <th style="width: 60%">住所</th>
+      <th style="width: 15%">宛名</th>
+      <th style="width: 15%"></th>
     </tr>
   </thead>
-  
+
   <tbody>
     <% @receivers.each do |receiver| %>
       <tr>
-        <td  style="width: 20%"><%= receiver.postal_code %></td>
-        <td  style="width: 20%"><%= receiver.address%></td>
-        <td  style="width: 20%"><%= receiver.name %></td>
-        <td  style="width: 40%">
-    　　　　<%= link_to '編集する',edit_receiver_path(receiver),class: "btn btn-outline-secondary" %>
-           <%= link_to '削除する', receiver_path(receiver), method: :delete, class: "btn btn-outline-secondary" %>
+        <td><%= receiver.postal_code %></td>
+        <td><%= receiver.address%></td>
+        <td><%= receiver.name %></td>
+        <td class="text-center">
+          <%= link_to '編集する',edit_receiver_path(receiver),class: "btn btn-outline-secondary btn-sm mb-1" %><br>
+          <%= link_to '削除する', receiver_path(receiver), method: :delete, class: "btn btn-outline-secondary btn-sm" %>
         </td>
       </tr>
            <% end %>
   </tbody>
 </table>
 
- <%= render 'form', receiver: @receiver %>   
+ <%= render 'form', receiver: @receiver %>
 </div>
 <div class='col-md-2'></div>
 
 
- 
+
 </div>
 </div>
