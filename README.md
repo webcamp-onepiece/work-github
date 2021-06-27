@@ -28,7 +28,7 @@
 
 ## アプリケーション詳細設計書
 #### 顧客側
-!(https://user-images.githubusercontent.com/81802888/123554132-9e519380-d7b9-11eb-916d-7fb2acdcf3a0.png)
+![customer_apply.png](https://user-images.githubusercontent.com/81802888/123554132-9e519380-d7b9-11eb-916d-7fb2acdcf3a0.png)
 
 
 #### 管理者側
