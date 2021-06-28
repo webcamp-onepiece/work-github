@@ -9,6 +9,9 @@
         <%= @product.description %>
         <br><strong>¥<%= (@product.add_tax_price.to_s(:delimited)) %>(税込)</strong>
         
+        
+          <% if @product.is_active == true %>
+            
         <div class="form-group">
           <%= form_with model:@cart_item, url: cart_items_path, method: :post, local:true do |f| %>
           <br>
@@ -17,6 +20,11 @@
             <%= f.submit"カートに入れる", class:"btn btn-outline-secondary" %>
             <%= f.hidden_field:product_id, :value => @product.id %>
           <% end %>
+        </div>
+            
+            <% else @product.is_active == false %>
+            <div style="color: darkgray">売切れ</div>
+            <% end %>
         </div>
     </div>
   </div>
